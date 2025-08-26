@@ -72,31 +72,94 @@ const count = ref(0)
   </el-tag>
 </template>
 
-<style scoped>
+<style scoped lang="scss">
+@use "sass:color";
+
 .box-card {
   width: 100%;
   max-width: 600px;
-  margin: 20px auto;
+  margin: $spacing-lg auto;
+  
+  &:hover {
+    transform: translateY(-2px);
+    transition: $transition-all;
+  }
 }
 
 .card-header {
   display: flex;
-  justify-content: center;
   align-items: center;
-}
-
-.card-header h1 {
-  margin: 0;
-  color: #409eff;
+  justify-content: center;
+  
+  h1 {
+    margin: 0;
+    color: $primary-color;
+    font-size: $font-size-extra-large;
+    font-weight: 600;
+    
+    @media (max-width: 767px) {
+      font-size: $font-size-large;
+    }
+  }
 }
 
 .card-content {
-  padding: 20px 0;
+  padding: $spacing-lg 0;
+  
+  .el-button-group {
+    .el-button {
+      min-width: 120px;
+      font-weight: 500;
+      
+      &[type="primary"] {
+        color: white;
+        background-color: $primary-color;
+        border-color: $primary-color;
+      }
+      
+      &[type="danger"] {
+        color: white;
+        background-color: $danger-color;
+        border-color: $danger-color;
+      }
+    }
+  }
+  
+  .el-alert {
+    margin: $spacing-md 0;
+    border-radius: $border-radius-base;
+  }
+  
+  .el-space {
+    width: 100%;
+    
+    .el-link {
+      padding: $spacing-sm $spacing-md;
+      border-radius: $border-radius-base;
+      transition: $transition-all;
+      
+      &:hover {
+        transform: translateX(4px);
+        background-color: color.adjust($primary-color, $lightness: 45%);
+      }
+      
+      .el-icon {
+        margin-right: $spacing-xs;
+      }
+    }
+  }
 }
 
 .read-the-docs {
-  margin-top: 20px;
+  margin-top: $spacing-lg;
   display: block;
   text-align: center;
+  color: $text-color-secondary;
+  font-size: $font-size-small;
+  
+  &:hover {
+    color: $primary-color;
+    transition: $transition-fade;
+  }
 }
 </style>

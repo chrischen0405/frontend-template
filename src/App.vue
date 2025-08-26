@@ -31,47 +31,101 @@ import HelloWorld from './components/HelloWorld.vue'
   </el-container>
 </template>
 
-<style scoped>
+<style scoped lang="scss">
+@use "sass:color";
+
+.el-container {
+  min-height: 100vh;
+}
+
 .el-header {
-  background-color: #f5f7fa;
-  color: #333;
+  background: linear-gradient(135deg, color.adjust($primary-color, $lightness: 20%) 0%, $primary-color 100%);
+  color: white;
   text-align: center;
   line-height: 60px;
-  padding: 20px 0;
+  padding: $spacing-lg 0;
+  box-shadow: $box-shadow-base;
+  
+  @media (max-width: 767px) {
+    padding: $spacing-md 0;
+  }
 }
 
 .el-main {
-  background-color: #ffffff;
-  color: #333;
+  background-color: $bg-color;
+  color: $text-color-primary;
   text-align: center;
   min-height: calc(100vh - 180px);
-  padding: 20px;
+  padding: $spacing-xl $spacing-md;
+  
+  @media (max-width: 767px) {
+    padding: $spacing-lg $spacing-sm;
+  }
 }
 
 .el-footer {
-  background-color: #f5f7fa;
-  color: #333;
+  background: linear-gradient(135deg, $bg-color-page 0%, color.adjust($border-color, $lightness: 5%) 100%);
+  color: $text-color-secondary;
   text-align: center;
   line-height: 60px;
+  border-top: 1px solid $border-color-light;
+  
+  .el-text {
+    font-size: $font-size-small;
+    font-weight: 500;
+  }
 }
 
 .logo-container {
   display: flex;
-  justify-content: center;
   align-items: center;
-  gap: 20px;
+  justify-content: center;
+  gap: $spacing-lg;
+  
+  @media (max-width: 767px) {
+    gap: $spacing-md;
+  }
 }
 
 .logo {
   height: 6em;
-  padding: 1.5em;
+  padding: $spacing-md;
   will-change: filter;
-  transition: filter 300ms;
+  transition: $transition-all;
+  border-radius: $border-radius-base;
+  
+  @media (max-width: 767px) {
+    height: 4em;
+    padding: $spacing-sm;
+  }
+  
+  &:hover {
+    filter: drop-shadow(0 0 2em rgba(100, 108, 255, 0.6));
+    transform: scale(1.05);
+  }
+  
+  &.vue:hover {
+    filter: drop-shadow(0 0 2em rgba(66, 184, 131, 0.6));
+  }
 }
-.logo:hover {
-  filter: drop-shadow(0 0 2em #646cffaa);
+
+// 添加一些动画效果
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
 }
-.logo.vue:hover {
-  filter: drop-shadow(0 0 2em #42b883aa);
+
+.el-main {
+  animation: fadeInUp 0.6s ease-out;
+}
+
+.logo-container {
+  animation: fadeInUp 0.8s ease-out;
 }
 </style>
