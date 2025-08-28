@@ -329,19 +329,36 @@ watch(
     &.el-menu--collapse {
       .el-sub-menu__title {
         padding: 0 20px !important;
+        
+        .el-icon {
+          margin-right: 0 !important;
+        }
       }
       
       .el-menu-item {
         padding: 0 20px !important;
         
         .el-icon {
-          margin-right: 0;
+          margin-right: 0 !important;
         }
+      }
+      
+      // 折叠状态下确保所有图标都显示
+      .el-icon {
+        display: inline-flex !important;
+        opacity: 1 !important;
+        visibility: visible !important;
       }
     }
     
+    // 一级菜单项样式
     :deep(.el-menu-item) {
       color: rgba(255, 255, 255, 0.8);
+      
+      .el-icon {
+        margin-right: 8px;
+        font-size: 16px;
+      }
       
       &:hover {
         background-color: color.adjust($primary-color, $lightness: -10%);
@@ -351,6 +368,10 @@ watch(
       &.is-active {
         background-color: color.adjust($primary-color, $lightness: -20%);
         color: #ffd04b;
+        
+        .el-icon {
+          color: #ffd04b;
+        }
         
         &::before {
           content: '';
@@ -364,25 +385,62 @@ watch(
       }
     }
     
+    // 子菜单标题样式
     :deep(.el-sub-menu__title) {
       color: rgba(255, 255, 255, 0.8);
+      
+      .el-icon {
+        margin-right: 8px;
+        font-size: 16px;
+        color: rgba(255, 255, 255, 0.8);
+      }
       
       &:hover {
         background-color: color.adjust($primary-color, $lightness: -10%);
         color: white;
+        
+        .el-icon {
+          color: white;
+        }
       }
     }
     
+    // 二级菜单项样式
     :deep(.el-sub-menu .el-menu-item) {
       background-color: color.adjust($primary-color, $lightness: -10%);
+      color: rgba(255, 255, 255, 0.7);
+      
+      .el-icon {
+        margin-right: 8px;
+        font-size: 14px;
+        color: rgba(255, 255, 255, 0.7);
+      }
       
       &:hover {
         background-color: color.adjust($primary-color, $lightness: -15%);
+        color: white;
+        
+        .el-icon {
+          color: white;
+        }
       }
       
       &.is-active {
         background-color: color.adjust($primary-color, $lightness: -25%);
+        color: #ffd04b;
+        
+        .el-icon {
+          color: #ffd04b;
+        }
       }
+    }
+    
+    // 确保所有图标都正确显示
+    :deep(.el-icon) {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      vertical-align: middle;
     }
   }
 }
