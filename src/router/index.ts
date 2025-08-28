@@ -5,7 +5,7 @@ import type { RouteRecordRaw } from 'vue-router'
 const routes: RouteRecordRaw[] = [
   {
     path: '/',
-    redirect: '/login'
+    redirect: '/dashboard'
   },
   {
     path: '/login',
@@ -17,13 +17,61 @@ const routes: RouteRecordRaw[] = [
     }
   },
   {
-    path: '/dashboard',
-    name: 'Dashboard',
-    component: () => import('@/pages/Dashboard/index.vue'),
+    path: '/',
+    component: () => import('@/components/layouts/MainLayout.vue'),
     meta: {
-      title: '仪表板',
       requiresAuth: true
-    }
+    },
+    children: [
+      {
+        path: '/dashboard',
+        name: 'Dashboard',
+        component: () => import('@/pages/Dashboard/index.vue'),
+        meta: {
+          title: '仪表板'
+        }
+      },
+      {
+        path: '/users/list',
+        name: 'UserList',
+        component: () => import('@/components/common/PageTemplate.vue'),
+        meta: {
+          title: '用户列表'
+        }
+      },
+      {
+        path: '/users/roles',
+        name: 'UserRoles',
+        component: () => import('@/components/common/PageTemplate.vue'),
+        meta: {
+          title: '角色管理'
+        }
+      },
+      {
+        path: '/content/articles',
+        name: 'Articles',
+        component: () => import('@/components/common/PageTemplate.vue'),
+        meta: {
+          title: '文章管理'
+        }
+      },
+      {
+        path: '/content/categories',
+        name: 'Categories',
+        component: () => import('@/components/common/PageTemplate.vue'),
+        meta: {
+          title: '分类管理'
+        }
+      },
+      {
+        path: '/settings',
+        name: 'Settings',
+        component: () => import('@/components/common/PageTemplate.vue'),
+        meta: {
+          title: '系统设置'
+        }
+      }
+    ]
   }
 ]
 
