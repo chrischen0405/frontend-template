@@ -8,8 +8,8 @@ export {}
 /* prettier-ignore */
 declare module 'vue' {
   export interface GlobalComponents {
-    CSearchTable: typeof import('./src/components/CSearchTable/index.vue')['default']
-    Debug: typeof import('./src/components/CSearchTable/debug.vue')['default']
+    CSearchTable: typeof import('./../src/components/CSearchTable/index.vue')['default']
+    Debug: typeof import('../src/components/CSearchTable/debug.vue')['default']
     ElAlert: typeof import('element-plus/es')['ElAlert']
     ElAside: typeof import('element-plus/es')['ElAside']
     ElAvatar: typeof import('element-plus/es')['ElAvatar']
@@ -51,14 +51,14 @@ declare module 'vue' {
     ElTag: typeof import('element-plus/es')['ElTag']
     ElText: typeof import('element-plus/es')['ElText']
     ElTooltip: typeof import('element-plus/es')['ElTooltip']
-    Example: typeof import('./src/components/CSearchTable/example.vue')['default']
-    FixedTest: typeof import('./src/components/CSearchTable/fixed-test.vue')['default']
-    HeightDemo: typeof import('./src/components/CSearchTable/height-demo.vue')['default']
-    MainLayout: typeof import('./src/components/layouts/MainLayout.vue')['default']
-    PageTemplate: typeof import('./src/components/common/PageTemplate.vue')['default']
+    Example: typeof import('./../src/components/CSearchTable/example.vue')['default']
+    FixedTest: typeof import('../src/components/CSearchTable/fixed-test.vue')['default']
+    HeightDemo: typeof import('../src/components/CSearchTable/height-demo.vue')['default']
+    MainLayout: typeof import('./../src/components/layouts/MainLayout.vue')['default']
+    PageTemplate: typeof import('./../src/components/common/PageTemplate.vue')['default']
     RouterLink: typeof import('vue-router')['RouterLink']
     RouterView: typeof import('vue-router')['RouterView']
-    Test: typeof import('./src/components/CSearchTable/test.vue')['default']
+    Test: typeof import('../src/components/CSearchTable/test.vue')['default']
   }
   export interface GlobalDirectives {
     vLoading: typeof import('element-plus/es')['ElLoadingDirective']
