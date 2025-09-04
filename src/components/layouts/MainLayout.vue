@@ -520,14 +520,16 @@ watch(
 .page-content {
   flex: 1;
   padding: $spacing-lg;
-  overflow-y: auto;
+  overflow: hidden; // 防止内容溢出
   
   .content-wrapper {
-    min-height: 100%;
+    height: 100%; // 固定为父容器高度
     background: $bg-color;
     border-radius: $border-radius-base;
     box-shadow: $box-shadow-light;
     padding: $spacing-lg;
+    overflow-y: hidden; // 允许纵向滚动
+    box-sizing: border-box; // 确保padding不会增加总高度
   }
 }
 

@@ -34,7 +34,7 @@ const routes: RouteRecordRaw[] = [
       {
         path: '/users/list',
         name: 'UserList',
-        component: () => import('@/components/common/PageTemplate.vue'),
+        component: () => import('@/pages/User/List.vue'),
         meta: {
           title: '用户列表'
         }
