@@ -25,13 +25,14 @@ export default defineConfig(({ mode }) => {
     resolve: {
       alias: {
         '@': resolve(__dirname, 'src'),
+        '@b': resolve(__dirname, 'src/base-code'),
       },
     },
     css: {
       preprocessorOptions: {
         scss: {
           additionalData: `
-            @use "@/styles/theme.scss" as *;
+            @use "@b/assets/css/theme.scss" as *;
           `,
         },
       },

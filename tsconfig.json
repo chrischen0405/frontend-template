@@ -17,7 +17,8 @@
     /* Path mapping */
     "baseUrl": ".",
     "paths": {
-      "@/*": ["src/*"]
+      "@/*": ["src/*"],
+      "@b/*": ["src/base-code/*"]
     },
 
     /* Linting */
