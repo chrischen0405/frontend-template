@@ -1,0 +1,3 @@
+[submodule "src/base-code"]
+	path = src/base-code
+	url = https://github.com/chrischen0405/frontend-template-base-code.git
